@@ -5,21 +5,17 @@ FROM ros2:base AS overlay
 
 # Update & Grundpakete
 RUN apt-get update && apt-get install -y \
-    ros-$ROS_DISTRO-rviz2 \
-    ros-$ROS_DISTRO-joint-state-publisher \
-    ros-$ROS_DISTRO-joint-state-publisher-gui \
     python3-colcon-common-extensions
 
 # Create an overlay Colcon workspace
 ENV ws=/magni_ros2_ws
-RUN mkdir -p /${ws}/src
-WORKDIR ${ws}
+#RUN mkdir -p /${ws}/src
 
 # Add the Magni ROS2 package
-RUN source /opt/ros/${ROS_DISTRO}/setup.bash && \
-    cd /magni_ros2_ws/src && \
-    ros2 pkg create --build-type ament_cmake magni_ros2
+COPY ../magni_ros2_ws /${ws}
+WORKDIR ${ws}
 
+# Install dependencies & build the workspace
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
  && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
  && colcon build --symlink-install
