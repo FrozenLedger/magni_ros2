@@ -1,0 +1,1 @@
+docker build -t solarswarm:ros1-ros2-bridge .
