@@ -12,7 +12,7 @@ ENV ws=/magni_ros2_ws
 #RUN mkdir -p /${ws}/src
 
 # Add the Magni ROS2 package
-COPY ../magni_ros2_ws /${ws}
+COPY ../magni_ros2_ws ${ws}
 WORKDIR ${ws}
 
 # Install dependencies & build the workspace
@@ -21,7 +21,7 @@ RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
  && colcon build --symlink-install
 
 # Set up the entrypoint
-COPY ./docker/entrypoint.sh /
+COPY ./entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 RUN rm -rf /var/lib/apt/lists/*

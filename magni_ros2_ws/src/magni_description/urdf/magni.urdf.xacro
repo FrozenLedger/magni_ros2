@@ -236,4 +236,31 @@
     </xacro:ur50_lidar>
   </xacro:if>
 
+  <link name="base_laser">
+  <visual>
+    <geometry>
+      <cylinder radius="0.03" length="0.05"/>
+    </geometry>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <material name="black"/>
+  </visual>
+
+  <collision>
+    <geometry>
+      <cylinder radius="0.03" length="0.05"/>
+    </geometry>
+  </collision>
+
+  <inertial>
+    <mass value="0.2"/>
+    <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+  </inertial>
+</link>
+
+<joint name="lidar_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="base_laser"/>
+  <origin xyz="0 0 0.20" rpy="0 0 0"/> <!-- Position oben auf dem Roboter -->
+</joint>
+
 </robot>

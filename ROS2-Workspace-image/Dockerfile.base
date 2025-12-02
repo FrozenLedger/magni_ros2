@@ -23,6 +23,4 @@ RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
  && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
  && colcon build --symlink-install
 
-# ENV TURTLEBOT3_MODEL=waffle_pi
-
 RUN rm -rf /var/lib/apt/lists/*
