@@ -3,14 +3,15 @@ services:
     build:
       context: ..
       dockerfile: docker/ros1-ros2-bridge-image/Dockerfile
-    command: []
+    environment:
+      ROS_MASTER_URI: "http://192.168.0.103:11311"
+      ROS_IP: "192.168.0.106"
+    network_mode: host
   magni_base:
     build:
       context: ..
       dockerfile: docker/ros2-magni-base-image/Dockerfile
-    command: []
   magni_overlay:
     build:
       context: ..
       dockerfile: docker/ros2-magni-overlay-image/Dockerfile
-    command: []
