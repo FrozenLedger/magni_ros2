@@ -1,12 +1,23 @@
-FROM ros:humble
+# based on: https://roboticseabass.com/2023/07/09/updated-guide-docker-and-ros2/
 
-# Install dependencies (Nav2, Gazebo, whatever you need)
-RUN apt update && apt install -y \
-    ros-humble-navigation2 \
-    ros-humble-nav2-bringup \
-    python3-colcon-common-extensions \
-    build-essential git
+ARG ROS_DISTRO=humble
 
-# Create workspace structure
-RUN mkdir -p /ros_ws/src
-WORKDIR /ros_ws
+FROM ros:${ROS_DISTRO} AS base
+ENV ROS_DISTRO=${ROS_DISTRO}
+ENV ws=/base_ws
+
+SHELL ["/bin/bash", "-c"]
+
+# Create Colcon workspace with external dependencies
+RUN mkdir -p /${ws}/src
+
+# Build the base Colcon workspace, installing dependencies first.
+WORKDIR ${ws}
+
+# Install dependencies
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
+ && apt-get update -y \
+ && rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y \
+ && colcon build --symlink-install
+
+RUN rm -rf /var/lib/apt/lists/*
