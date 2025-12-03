@@ -1,0 +1,16 @@
+services:
+  magni_bidge:
+    build:
+      context: ..
+      dockerfile: docker/ros1-ros2-bridge-image/Dockerfile
+    command: []
+  magni_base:
+    build:
+      context: ..
+      dockerfile: docker/ros2-magni-base-image/Dockerfile
+    command: []
+  magni_overlay:
+    build:
+      context: ..
+      dockerfile: docker/ros2-magni-overlay-image/Dockerfile
+    command: []
