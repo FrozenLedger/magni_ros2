@@ -15,8 +15,6 @@ COPY ./bridge.yaml ${BRIDGE_WS}/bridge.yaml
 COPY ./CMakeLists.txt ${BRIDGE_WS}/src/CMakeLists.txt
 COPY ./package.xml ${BRIDGE_WS}/src/package.xml
 
-COPY ros2_tcp_twist_sender.py /ros2_tcp_twist_sender.py
-
 # Creates catkin workspace and compiles
 #RUN /bin/bash -c "cd /bridge_ws;source /opt/ros/noetic/setup.bash;catkin_make"
 #RUN cd /bridge_ws; source /opt/ros/noetic/setup.bash; catkin_make

@@ -12,7 +12,8 @@ ENV ws=/magni_ros2_ws
 #RUN mkdir -p /${ws}/src
 
 # Add the Magni ROS2 package
-COPY ../magni_ros2_ws ${ws}
+RUN mkdir -p ${ws}/src
+COPY ../../src ${ws}/src
 WORKDIR ${ws}
 
 # Install dependencies & build the workspace
