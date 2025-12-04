@@ -24,6 +24,7 @@ fi
 
 # Setup
 ros2 launch magni_description display.launch.py &
+ros2 launch magni_description slam_nav2.launch.py &
 
 # Execute the command passed into this entrypoint
 exec "$@"

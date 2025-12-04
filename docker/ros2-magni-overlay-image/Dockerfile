@@ -5,7 +5,9 @@ FROM ros2:base AS overlay
 
 # Update & Grundpakete
 RUN apt-get update && apt-get install -y \
-    python3-colcon-common-extensions
+    python3-colcon-common-extensions \
+    ros-humble-slam-toolbox \
+    ros-humble-nav2*
 
 # Create an overlay Colcon workspace
 ENV ws=/magni_ros2_ws
