@@ -27,3 +27,4 @@ RUN chmod +x /entrypoint.sh
 
 RUN rm -rf /var/lib/apt/lists/*
 ENTRYPOINT [ "/entrypoint.sh" ]
+CMD ["rviz2"]
