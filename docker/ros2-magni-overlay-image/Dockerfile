@@ -1,5 +1,5 @@
 ###########################################
-# Overlay Image for TurtleBot3 Simulation #
+# Overlay Image for Magni Simulation #
 ###########################################
 FROM ros2:base AS overlay
 

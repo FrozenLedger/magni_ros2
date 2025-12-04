@@ -13,11 +13,17 @@ then
 fi
  
 # Source the overlay workspace, if built
-if [ -f /overlay_ws/install/setup.bash ]
+if [ -f /magni_ros2_ws/install/setup.bash ]
 then
-  source /overlay_ws/install/setup.bash
+  source /magni_ros2_ws/install/setup.bash
+  echo "/magni_ros2_ws/install/setup.bash sourced"
   # export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(ros2 pkg prefix tb3_worlds)/share/tb3_worlds/models
+else
+  echo "Failed sourcing /magni_ros2_ws"
 fi
- 
+
+# Setup
+ros2 launch magni_description display.launch.py &
+
 # Execute the command passed into this entrypoint
 exec "$@"
