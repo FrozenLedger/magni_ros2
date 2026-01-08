@@ -1,17 +1,18 @@
 slam_toolbox:
   ros__parameters:
-
+  
     use_sim_time: False
-    slam_mode: true                 # online SLAM / mapping
+    slam_mode: True                 # online SLAM / mapping
     map_frame: map
     odom_frame: odom
     base_frame: base_link
+    laser_frame: base_laser
     scan_topic: /scan
 
     resolution: 0.05
-    publish_map: true
-    publish_pose: true
-    publish_tf: true
+    publish_map: True
+    publish_pose: True
+    publish_tf: True
 
     minimum_time_between_scan_registration: 0.2
 
@@ -25,11 +26,11 @@ slam_toolbox:
     loop_matching_max_range: 10.0
     loop_search_max_range: 12.0
     loop_search_min_range: 3.0
-    loop_closure_enabled: true
+    loop_closure_enabled: True
 
     # map publishing
     map_update_interval: 5.0
     transform_publish_period: 0.02
 
     # serialization options
-    enable_interactive_mode: false
+    enable_interactive_mode: False

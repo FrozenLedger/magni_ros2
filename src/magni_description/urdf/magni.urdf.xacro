@@ -141,7 +141,7 @@
   <joint name="base_footprint_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin xyz="0 0 ${wheel_r}" rpy="0 0 0"/>
+    <origin xyz="0 0 10" rpy="0 0 0"/>
   </joint>
 
   <!-- Macro for defining wheels -->
@@ -260,7 +260,7 @@
 <joint name="lidar_joint" type="fixed">
   <parent link="base_link"/>
   <child link="base_laser"/>
-  <origin xyz="0 0 0.20" rpy="0 0 0"/> <!-- Position oben auf dem Roboter -->
+  <origin xyz="0 0 0.20" rpy="0 0 -1.5708"/> <!-- Position oben auf dem Roboter -->
 </joint>
 
 </robot>

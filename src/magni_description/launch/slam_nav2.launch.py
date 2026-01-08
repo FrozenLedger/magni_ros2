@@ -34,10 +34,10 @@ def generate_launch_description():
                 )
             ),
             launch_arguments={
-                'use_sim_time': 'false',
+                'use_sim_time': 'False',
                 'params_file': nav2_params,
-                'autostart': 'true',
-                'slam': 'true'
+                'autostart': 'True',
+                'map':'map_yaml'
             }.items()
         )
 

@@ -20,5 +20,6 @@ services:
       - QT_X11_NO_MITSHM=1   # Verhindert Shared-Memory Probleme
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw   # X11 Socket
-      - ../config/rviz_config.rviz:/ros2_magni_ws/config/my_rviz_config.rviz:rw
+      - ../config:/magni_ros2_ws/install/magni_description/share/magni_description/config:rw
+      - ../scripts:/scripts:r
     network_mode: host
